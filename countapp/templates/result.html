@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+    <div class="container">
+    
+    <h1>입력한 텍스트: </h1><br>
+    <div class="jumbotron">
+
+    <pre style="white-space: pre-line;">{{ text }}</pre>
+    </div>
+    <h1>갯수</h1><br>
+    
+
+    
+    <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">가장 많이 나온 단어 Top 5</div>
+                      <div class="h6 mb-0 font-weight-bold text-gray-800">    {% for word, count in top_five %}
+                          {{ word }} : {{ count }}<br>
+                          {% endfor %}</div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">전체 단어 수</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_word}}</div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+    
+          <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)"><h2>
+            전체 단어 보기</h2></a><div class="h3 mb-0 font-weight-bold text-gray-800" style="display: none">{% for word, count in noun_list %}
+            <h3>{{ word }} : {{ count }}</h3><br>
+            {% endfor %}</div>
+    
+  
+
+{% endblock %}
